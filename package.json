@@ -1,4 +1,5 @@
 {
+    "homepage": "http://quillchain.github.io/nft-market",
     "name": "nft-market",
     "version": "1.0.0",
     "description": "NEAR NFT Market Reference Implementation",
@@ -29,6 +30,8 @@
         "last 2 Chrome versions"
     ],
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "hoist-credentials": "mkdir ./neardev/testnet && mkdir ./neardev/mainnet && node ./utils/hoist-credentials.js",
         "test:deploy": "yarn dev:deploy && yarn hoist-credentials && yarn test",
         "dev:deploy": "yarn build:contracts && rm -rf neardev && (near dev-deploy || exit 0) && yarn patch:config",
